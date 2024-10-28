@@ -26,3 +26,19 @@ while (intentos < maxIntentos){
         break;
     }
 }
+
+
+function calcularCouta(monto, interes, meses){
+    const tasaMensual = interes / 100 / 12;
+    return (monto * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -meses));
+
+}
+
+let continuar = true;
+
+while (continuar){
+const monto = parseFloat(prompt("Ingrese el monto total del prestamo"));
+const interes = parseFloat(prompt("Ingrese la tasa de interes en %"));
+const meses = parseInt(prompt("Ingrese a que numero de meses va ser el prestamo", 10))
+
+}
