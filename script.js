@@ -10,11 +10,13 @@ let intentos = 0
 const maxIntentos = 3
 
 while (intentos < maxIntentos){
+    
     const ingresoUsuario = prompt('Ingrese su nombre de usuario:')
     const ingresoContraseña = prompt('Ingrese su contraseña:')
-
+    
     if (ingresoUsuario === usuario && ingresoContraseña === contraseña){
         console.log('Permitido el acceso, Bienvenido al sistema: ')
+        
         break;
     } else {
         intentos++
@@ -25,10 +27,10 @@ while (intentos < maxIntentos){
         console.log('Has alcanzado el número máximo de intentos. Cerrando el sistema')
         break;
     }
-}
+    
 
 
-function calcularCouta(monto, interes, meses){
+function calcularFinanciamiento(monto, interes, meses){
     const tasaMensual = interes / 100 / 12;
     return (monto * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -meses));
 
@@ -37,8 +39,26 @@ function calcularCouta(monto, interes, meses){
 let continuar = true;
 
 while (continuar){
-const monto = parseFloat(prompt("Ingrese el monto total del prestamo"));
+const monto = parseFloat(prompt("Ingrese el monto total del prestamo:"));
 const interes = parseFloat(prompt("Ingrese la tasa de interes en %"));
-const meses = parseInt(prompt("Ingrese a que numero de meses va ser el prestamo", 10))
+const meses = parseInt(prompt("Ingrese a que numero de meses va ser el prestamo"))
 
+
+let tasaFinal = interes
+if (meses < 12){
+    tasaFinal += 2;
 }
+else if (meses > 36){
+    tasaFinal -= 1;
+}
+
+    const cuotaMensual = calcularFinanciamiento(monto, tasaFinal, meses);
+
+console.log('La cuota mensual seria de: ' + cuotaMensual);
+
+
+
+continuar = confirm("Desea calcular el financiamento nuevamente?")
+        }
+    }
+
