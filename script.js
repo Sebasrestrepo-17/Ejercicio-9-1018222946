@@ -27,7 +27,7 @@ while (intentos < maxIntentos){
         console.log('Has alcanzado el número máximo de intentos. Cerrando el sistema')
         break;
     }
-    
+}   
 
 
 function calcularFinanciamiento(monto, interes, meses){
@@ -59,6 +59,9 @@ console.log('La cuota mensual seria de: ' + cuotaMensual);
 
 
 continuar = confirm("Desea calcular el financiamento nuevamente?")
-        }
-    }
+         
+
+
+}
+    
 
